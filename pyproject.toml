@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-audio-monitor"
+version = "0.1.0"
+description = "Monitor headset audio, classify events, and store stress-aware transcripts."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Codex Audio Monitor"}]
+dependencies = [
+    "numpy",
+    "sounddevice",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+audio-monitor = "audio_monitor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["audio_monitor*"]
